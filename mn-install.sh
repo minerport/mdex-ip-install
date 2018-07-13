@@ -473,14 +473,6 @@ masternodeprivkey=$COINKEY3
 EOF
 }
 
-echo "Installing mnchecker"
-cd /root
-mkdir mnchecker
-cd mnchecker
-wget https://raw.githubusercontent.com/Moondex/mnchecker/master/mnchecker
-chmod 740 mnchecker
-cd /root
-
 function enable_firewall() {
   echo -e "Installing and setting up firewall to allow ingress on port ${GREEN}$COIN_PORT${NC}"
   ufw allow $COIN_PORT/tcp comment "$COIN_NAME MN port" >/dev/null
