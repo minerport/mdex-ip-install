@@ -30,6 +30,7 @@ NC='\033[0m'
 
 
 function download_node() {
+  cd /mdex-ip-install/
   echo -e "Preparing to download ${GREEN}$COIN_NAME${NC}."
   wget -q $COIN_TGZ
   compile_error
@@ -298,6 +299,7 @@ addnode=207.148.104.192:8906
 EOF
 }
 
+function installsentinel() {
 echo "Installing sentinel..."
 cd /root/.moondexcore
 sudo apt-get install -y git python-virtualenv
@@ -362,7 +364,7 @@ echo "*/15 * * * * /root/mdex-ip-install/mnchecker2 >> /root/mdex-ip-install/che
 echo "* * * * * cd /root/.moondexcore3/moondex_sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> tempcron
 echo "@reboot /bin/sleep 20 ; /usr/local/bin/moondex/moondexd -datadir=/root/.moondex.conf -daemon &" >> tempcron
 echo "*/15 * * * * /root/mdex-ip-install/mnchecker3 >> /root/mdex-ip-install/checker3.log 2>&1" >> tempcron
-
+}
 
 #install new cron file
 crontab tempcron
@@ -580,6 +582,7 @@ function setup_node() {
   configure_systemd
   configure_systemd2
   configure_systemd3
+  installsentinel
 }
 
 
