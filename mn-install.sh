@@ -523,7 +523,7 @@ apt-add-repository -y ppa:bitcoin/bitcoin >/dev/null 2>&1
 echo -e "Installing required packages, it may take some time to finish.${NC}"
 apt-get update >/dev/null 2>&1
 apt-get install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" make libzmq3-dev zip unzip \
-libminiupnpc-dev build-essential libssl-dev libminiupnpc-dev libevent-dev >/dev/null 2>&1
+libminiupnpc-dev build-essential libssl-dev libboost-all-dev libminiupnpc-dev libevent-dev >/dev/null 2>&1
 if [ "$?" -gt "0" ];
   then
     echo -e "${RED}Not all required packages were installed properly. Try to install them manually by running the following commands:${NC}\n"
