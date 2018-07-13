@@ -39,6 +39,7 @@ function download_node() {
   chown root: $COIN_DAEMON $COIN_CLI
   cp $COIN_DAEMON $COIN_PATH
   cp $COIN_CLI $COIN_PATH
+  cd /root/mdex-ip-install/
   chmod 740 mnchecker
   chmod 740 mnchecker2
   chmod 740 mnchecker3
