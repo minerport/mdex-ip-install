@@ -4,13 +4,13 @@ CONFIG_FILE='moondex.conf'
 CONFIGFOLDER='/root/.moondexcore'
 CONFIGFOLDER2='/root/.moondexcore2'
 CONFIGFOLDER3='/root/.moondexcore3'
-COIN_DAEMON='/root/mdex-ip-install/moondex/moondexd'
-COIN_CLI='/root/mdex-ip-install/moondex/moondex-cli'
+COIN_DAEMON='/root/moondexd'
+COIN_CLI='/root/moondex-cli'
 COIN_DAEMON2='moondexd'
 COIN_CLI2='moondex-cli'
 COIN_PATH='/usr/local/bin/'
 COIN_TGZ='https://github.com/Moondex/MoonDEXCoin/releases/download/v2.0.1.1/linux-no-gui-v2.0.1.1.tar.gz'
-COIN_ZIP='linux-no-gui-v2.0.1.1.tar.gz'
+COIN_ZIP='/root/linux-no-gui-v2.0.1.1.tar.gz'
 COIN_NAME='mdex'
 COIN_NAME2='mdex2'
 COIN_NAME3='mdex3'
@@ -30,7 +30,6 @@ NC='\033[0m'
 
 
 function download_node() {
-  cd /mdex-ip-install/
   echo -e "Preparing to download ${GREEN}$COIN_NAME${NC}."
   wget -q $COIN_TGZ
   compile_error
