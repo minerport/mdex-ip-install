@@ -10,7 +10,7 @@ COIN_DAEMON2='moondexd'
 COIN_CLI2='moondex-cli'
 COIN_PATH='/usr/local/bin/'
 COIN_TGZ='https://github.com/Moondex/MoonDEXCoin/releases/download/v2.0.1.1/linux-no-gui-v2.0.1.1.tar.gz'
-COIN_ZIP='/root/mdex-ip-install/linux-no-gui-v2.0.1.1.tar.gz'
+COIN_ZIP='linux-no-gui-v2.0.1.1.tar.gz'
 COIN_NAME='mdex'
 COIN_NAME2='mdex2'
 COIN_NAME3='mdex3'
@@ -335,7 +335,7 @@ virtualenv ./venv
 
 echo "moondex_conf=/root/.moondexcore2/moondex.conf" >> /root/.moondexcore2/moondex_sentinel/sentinel.conf
 
-cd /root/.moondexcore
+cd /root/.moondexcore3
 sudo apt-get install -y git python-virtualenv
 
 wget https://github.com/Moondex/moondex_sentinel/archive/master.zip
@@ -359,10 +359,10 @@ echo "* * * * * cd /root/.moondexcore/moondex_sentinel && ./venv/bin/python bin/
 echo "@reboot /bin/sleep 20 ; /root/moondex/moondexd -daemon &" >> tempcron
 echo "*/15 * * * * /root/mdex-ip-install/mnchecker >> /root/mdex-ip-install/checker.log 2>&1" >> tempcron
 echo "* * * * * cd /root/.moondexcore2/moondex_sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> tempcron
-echo "@reboot /bin/sleep 20 ; /usr/local/bin/moondex/moondexd -datadir=/root/.moondex.conf -daemon &" >> tempcron
+echo "@reboot /bin/sleep 20 ; /usr/local/bin/moondex/moondexd -datadir=/root/.moondexcore2 -daemon &" >> tempcron
 echo "*/15 * * * * /root/mdex-ip-install/mnchecker2 >> /root/mdex-ip-install/checker2.log 2>&1" >> tempcron
 echo "* * * * * cd /root/.moondexcore3/moondex_sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> tempcron
-echo "@reboot /bin/sleep 20 ; /usr/local/bin/moondex/moondexd -datadir=/root/.moondex.conf -daemon &" >> tempcron
+echo "@reboot /bin/sleep 20 ; /usr/local/bin/moondex/moondexd -datadir=/root/.moondexcore3 -daemon &" >> tempcron
 echo "*/15 * * * * /root/mdex-ip-install/mnchecker3 >> /root/mdex-ip-install/checker3.log 2>&1" >> tempcron
 }
 
